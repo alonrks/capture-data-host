@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CaptureDataHost": {
+      "commandName": "Project",
+      "commandLineArgs": "run --host Both --workload 10"
+    }
+  }
+}

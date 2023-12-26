@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=local-data.db;Pooling=true;synchronous=NORMAL;journal_mode=WAL;page_size=32768;temp_store=MEMORY;mmap_size=-30000000000;"
+  }
+}
