@@ -7,7 +7,7 @@ public class HostConsumer : IHostConsumer
     public HostMode Mode => HostMode.Consumer;
     private readonly ISqliteRepository _repository;
     private readonly ILogger<HostConsumer> _logger;
-    
+
     public HostConsumer(ISqliteRepository repository, ILogger<HostConsumer> logger)
     {
         _repository = repository;

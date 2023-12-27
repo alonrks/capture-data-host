@@ -15,7 +15,7 @@ var configuration = new ConfigurationBuilder()
 
 var loggerFactory = LoggerFactory.Create(builder =>
 {
-    builder.AddSimpleConsole( options =>
+    builder.AddSimpleConsole(options =>
     {
         options.IncludeScopes = true;
         options.SingleLine = false;
@@ -36,8 +36,8 @@ var serviceProvider = new ServiceCollection()
 
     })
     .AddTransient<ISqliteRepository, SqliteRepository>()
-    .AddScoped<ILogger<HostConsumer>>( sp => loggerFactory.CreateLogger<HostConsumer>())
-    .AddScoped<ILogger<HostProducer>>( sp => loggerFactory.CreateLogger<HostProducer>())
+    .AddScoped<ILogger<HostConsumer>>(sp => loggerFactory.CreateLogger<HostConsumer>())
+    .AddScoped<ILogger<HostProducer>>(sp => loggerFactory.CreateLogger<HostProducer>())
     .AddScoped<IHostConsumer, HostConsumer>()
     .AddScoped<IHostProducer, HostProducer>()
     .BuildServiceProvider();
@@ -95,7 +95,7 @@ var runCommand = new Command("run", "Run host.")
 {
     hostOption,
     workloadOption
-}; 
+};
 rootCommand.AddCommand(runCommand);
 
 

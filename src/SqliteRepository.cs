@@ -14,14 +14,15 @@ public class SqliteRepository : ISqliteRepository
                                                        Timestamp    INTEGER (15) NOT NULL
                                                    
                                            """;
-    
+
     private readonly QueryFactory _db;
 
     public SqliteRepository(QueryFactory db)
     {
         _db = db;
         // Log the compiled query to the console
-        _db.Logger = compiled => {
+        _db.Logger = compiled =>
+        {
             Console.WriteLine(compiled.ToString());
         };
         var query = $"CREATE TABLE IF NOT EXISTS {TABLE_USER_ACTION} ({TABLE_COLUMNS});";
@@ -30,7 +31,7 @@ public class SqliteRepository : ISqliteRepository
 
     public Task DeleteAsync(string id)
     {
-        return  _db.Query(TABLE_USER_ACTION).Where("id", "=", id).DeleteAsync();
+        return _db.Query(TABLE_USER_ACTION).Where("id", "=", id).DeleteAsync();
     }
 
     public Task HousekeepingAsync()
@@ -56,7 +57,7 @@ public class SqliteRepository : ISqliteRepository
         return _db.Query(TABLE_USER_ACTION).OrderBy("Timestamp").GetAsync<RecordedEntity>();
     }
 
-    public  Task<RecordedEntity?> GetByIdAsync(string id)
+    public Task<RecordedEntity?> GetByIdAsync(string id)
     {
         return Task.FromResult(default(RecordedEntity));
     }

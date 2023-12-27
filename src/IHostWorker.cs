@@ -2,6 +2,6 @@
 
 public interface IHostWorker
 {
-    HostMode Mode { get;}
+    HostMode Mode { get; }
     Task RunAsync(int threshold);
 }
