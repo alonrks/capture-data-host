@@ -16,7 +16,7 @@ public class HostConsumer : IHostConsumer
     public async Task RunAsync(int threshold)
     {
         var numberOfConsumedRecords = 0;
-        var numberOfRetries = 5;
+        var numberOfRetries = 10;
         while (true)
         {
             var entities = await _repository?.GetAllAsync()!;
